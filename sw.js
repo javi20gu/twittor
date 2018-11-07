@@ -14,7 +14,7 @@ const CACHE_INMUTABLE = "INMUTABLE-v1";
 
 // El corazon de nuestra aplicacion
 const APP_SHELL = [
-    "/",
+    //"/",
     "index.html",
     "./js/app.js",
     "./css/style.css",
