@@ -5,7 +5,7 @@ function actualizarCacheDinamico(  dynamicCache  ,  request  ,  respuesta  ) {
     // Si la respuesta lo ha obtenido correctamente
     if(  respuesta.ok  ) {
         // Abrimos el cache dinamico
-        caches.open(dynamicCache)
+        return caches.open(dynamicCache)
             .then(cache => {
                 // Obtenido el cache dinamico, le cambiamos el viejo request por la nueva respuesta
                 cache.put( request , respuesta.clone());

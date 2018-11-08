@@ -89,7 +89,7 @@ self.addEventListener('fetch', evento => {
                 // Si no lo encuentra en el cache, lo extrae desde internet
                 return fetch(evento.request)
                     .then(nuevaRespuesta => {
-                        return actualizarCacheDinamico(CACHE_DINAMIC, evento.request, nuevaRespuesta)
+                        return actualizarCacheDinamico(CACHE_DINAMIC, evento.request, nuevaRespuesta);
                     });
             }
         });
