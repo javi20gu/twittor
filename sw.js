@@ -53,7 +53,7 @@ self.addEventListener('install', evento => {
 
 self.addEventListener('activate', evento => {
     
-    // Obtenemos todas las caches en clave - valor
+    // Obtenemos todos los nombres de las caches en clave - valor
     const respuesta = caches.keys()
         .then(keys => {
             keys.forEach(key => {
@@ -74,11 +74,11 @@ self.addEventListener('fetch', evento => {
     
     // Dentro de todas las caches que tenemos, nos retorna si existe en el cache esa request
     const respuesta = caches.match( evento.request )
-        .then( res => {
+        .then( resonp => {
 
             // Si existe la request en el cache
-            if (res) {
-                return res;
+            if (resonp) {
+                return resonp;
             } else {
                 // Si no lo encuentra en el cache, lo extrae desde internet
                 return fetch(evento.request)
