@@ -3,8 +3,8 @@ importScripts("./js/sw-utils.js");
 
 
 // Definimos las versiones del cache
-const CACHE_STATIC = "static-v3";
-const CACHE_DINAMIC = "dinamic-v1";
+const CACHE_STATIC = "static-v4";
+const CACHE_DINAMIC = "dinamic-v2";
 const CACHE_INMUTABLE = "INMUTABLE-v1";
 
 
@@ -58,6 +58,11 @@ self.addEventListener('activate', evento => {
         .then(keys => {
             keys.forEach(key => {
                 if(  key != CACHE_STATIC  &&  key.includes("static")  ) {
+                    // Eliminamos las versiones antiguas del cache si el cache es diferente de la version actual del cache y incluye la palabra static
+                    return caches.delete(key);
+                }
+                
+                if(  key != CACHE_STATIC  &&  key.includes("dinamic")  ) {
                     // Eliminamos las versiones antiguas del cache si el cache es diferente de la version actual del cache y incluye la palabra static
                     return caches.delete(key);
                 } 
