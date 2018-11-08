@@ -63,7 +63,7 @@ self.addEventListener('activate', evento => {
                     return caches.delete(key);
                 }
                 
-                if(  key != CACHE_STATIC  &&  key.includes("dinamic")  ) {
+                if(  key != CACHE_DINAMIC  &&  key.includes("dinamic")  ) {
                     // Eliminamos las versiones antiguas del cache si el cache es diferente de la version actual del cache y incluye la palabra static
                     return caches.delete(key);
                 } 
