@@ -1,5 +1,5 @@
 // importamos la funcion
-importScripts("./js/sw-utils.js");
+importScripts("js/sw-utils.js");
 
 
 // Definimos las versiones del cache
@@ -16,6 +16,7 @@ const APP_SHELL = [
     //"/",
     "index.html",
     "./js/app.js",
+    "./js/sw-utils.js",
     "./css/style.css",
     "./img/avatars/hulk.jpg",
     "./img/avatars/ironman.jpg",
