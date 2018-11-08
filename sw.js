@@ -91,4 +91,6 @@ self.addEventListener('fetch', evento => {
                     .then(nuevaRespuesta => actualizarCacheDinamico(CACHE_DINAMIC, evento.request, nuevaRespuesta));
             }
         });
+    
+        evento.respondWith(respuesta);
 });
