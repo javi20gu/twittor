@@ -3,7 +3,7 @@ importScripts("./js/sw-utils.js");
 
 
 // Definimos las versiones del cache
-const CACHE_STATIC = "static-v2";
+const CACHE_STATIC = "static-v3";
 const CACHE_DINAMIC = "dinamic-v1";
 const CACHE_INMUTABLE = "INMUTABLE-v1";
 
