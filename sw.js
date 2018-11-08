@@ -11,27 +11,27 @@ const CACHE_INMUTABLE = "INMUTABLE-v1";
 
 
 
-// Definimos lo que tendra el cache
+// Definimos lo que tendra el cache Principal
 const APP_SHELL = [
     //"/",
     "index.html",
-    "./js/app.js",
-    "./js/sw-utils.js",
-    "./css/style.css",
-    "./img/avatars/hulk.jpg",
-    "./img/avatars/ironman.jpg",
-    "./img/avatars/spiderman.jpg",
-    "./img/avatars/thor.jpg",
-    "./img/avatars/wolverine.jpg",
-    "./img/favicon.ico",
+    "css/style.css",
+    "img/avatars/hulk.jpg",
+    "img/avatars/ironman.jpg",
+    "img/avatars/spiderman.jpg",
+    "img/avatars/thor.jpg",
+    "img/avatars/wolverine.jpg",
+    "img/favicon.ico",
+    "js/app.js",
+    "js/sw-utils.js",
 ];
 
 const APP_SHELL_INMUTABLE = [
     "https://fonts.googleapis.com/css?family=Quicksand:300,400",
     "https://fonts.googleapis.com/css?family=Lato:400,300",
-    "./css/animate.css",
+    "css/animate.css",
     "https://use.fontawesome.com/releases/v5.3.1/css/all.css",
-    "./js/libs/jquery.js",
+    "js/libs/jquery.js",
 ];
 
 
@@ -80,15 +80,17 @@ self.addEventListener('fetch', evento => {
     
     // Dentro de todas las caches que tenemos, nos retorna si existe en el cache esa request
     const respuesta = caches.match( evento.request )
-        .then( resonp => {
+        .then( respond => {
 
             // Si existe la request en el cache
-            if (resonp) {
-                return resonp;
+            if (respond) {
+                return respond;
             } else {
                 // Si no lo encuentra en el cache, lo extrae desde internet
                 return fetch(evento.request)
-                    .then(nuevaRespuesta => actualizarCacheDinamico(CACHE_DINAMIC, evento.request, nuevaRespuesta));
+                    .then(nuevaRespuesta => {
+                        return actualizarCacheDinamico(CACHE_DINAMIC, evento.request, nuevaRespuesta)
+                    });
             }
         });
     
